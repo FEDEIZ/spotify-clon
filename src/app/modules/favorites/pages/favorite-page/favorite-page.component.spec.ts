@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FavoritePageComponent } from './favorite-page.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('FavoritePageComponent', () => {
   let component: FavoritePageComponent;
@@ -8,7 +9,8 @@ describe('FavoritePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FavoritePageComponent]
+      declarations: [FavoritePageComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 
