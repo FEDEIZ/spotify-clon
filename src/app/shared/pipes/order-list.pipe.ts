@@ -6,20 +6,20 @@ import { TrackModel } from '@core/models/tracks.model';
 })
 export class OrderListPipe implements PipeTransform {
 
-  transform(values: any[], args: string | null, sort:string): TrackModel[] {
+  transform(values: any[], args?: string | null, sort?:string): TrackModel[] {
    try {
     if(args === null){
       return values
     }
     else{
       const tmpList = values.sort((a,b) => {
-        if(a[args]< b[args]){
+        if(a[args!]< b[args!]){
           return -1;
         }
-        else if(a[args] === b[args]){
+        else if(a[args!] === b[args!]){
           return 0
         }
-        else if(a[args] > b[args]){
+        else if(a[args!] > b[args!]){
           return 1
         }
         return 1;
@@ -27,7 +27,6 @@ export class OrderListPipe implements PipeTransform {
 
       return (sort === 'asc') ? tmpList : tmpList.reverse();
     }
-     return []
    } catch (error) {
     console.log('Error!');
     return values

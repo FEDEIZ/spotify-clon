@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   private readonly URL = environment.api;
-  constructor(private readonly http: HttpClient, private readonly cookieService: CookieService) { }
+  constructor(private readonly http: HttpClient, private readonly cookieService?: CookieService) { }
 
   sendCredentials(email:string, password:string) : Observable<any>{
     const body = {email, password}
@@ -18,7 +18,7 @@ export class AuthService {
                 tap((responseOk: any) => {
                   console.log('Sesion iniciada....  ')
                   const {tokenSession, data} = responseOk
-                  this.cookieService.set('token', tokenSession, 4, '/')
+                  this.cookieService?.set('token', tokenSession, 4, '/')
                 }),
                 catchError((err, caught) => {
                   console.log(caught);
