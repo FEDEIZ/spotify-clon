@@ -11,9 +11,7 @@ export class SearchComponent implements OnInit {
 
   constructor(){}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {}
 
   callSearch(term: string) : void{
     if(term.length >= 3){
